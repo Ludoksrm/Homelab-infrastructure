@@ -55,7 +55,8 @@ Réseau local
     ├ Vaultwarden
     ├ Nginx Proxy Manager
     ├ MotionEye
-    └ Frigate (Docker + go2rtc)'''
+    └ Frigate (Docker + go2rtc)
+    '''
 🖥 Infrastructure matérielle
 Node 1 — serveur laboratoire / stockage
 Machine : HP ProDesk
