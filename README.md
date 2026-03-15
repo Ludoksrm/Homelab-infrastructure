@@ -1,6 +1,6 @@
-🏠 Homelab Infrastructure
+# 🏠 Homelab Infrastructure
 
-# Présentation
+## Présentation
 
 Ce dépôt documente mon homelab personnel, construit pour automatiser mon appartement et expérimenter des technologies d’infrastructure.
 Le projet a commencé avec un Raspberry Pi 4 hébergeant Home Assistant.
