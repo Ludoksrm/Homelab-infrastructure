@@ -3,23 +3,32 @@
 ## Présentation
 
 Ce dépôt documente mon homelab personnel, construit pour automatiser mon appartement et expérimenter des technologies d’infrastructure.
+
 Le projet a commencé avec un Raspberry Pi 4 hébergeant Home Assistant.
+
 Avec l’ajout progressif :
-d’intégrations domotiques
-d’automatisations
-de caméras IP
+
+- d’intégrations domotiques
+- d’automatisations
+- de caméras IP
+  
 le Raspberry Pi est rapidement devenu limité :
-surcharge CPU
-baisse du framerate vidéo
-architecture monolithique
-point de défaillance unique
+
+- surcharge CPU
+- baisse du framerate vidéo
+- architecture monolithique
+- point de défaillance unique
+  
 L’infrastructure a donc évolué vers une architecture virtualisée basée sur Proxmox VE, permettant de séparer les services et d’améliorer la stabilité.
+
 Ce laboratoire me permet aujourd’hui d’expérimenter :
-l’administration systèmes
-la virtualisation
-les conteneurs
-la domotique
-les services auto-hébergés
+
+- l’administration systèmes
+- la virtualisation
+- les conteneurs
+- la domotique
+- les services auto-hébergés
+  
 🎯 Objectifs du projet
 Les objectifs principaux de ce homelab sont :
 centraliser la domotique de l’appartement
