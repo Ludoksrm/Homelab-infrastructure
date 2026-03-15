@@ -86,42 +86,57 @@ Stockage :
 
 - SSD 256 Go : système Proxmox
 - disque USB 1 To : ZFS
+  
 Services :
-TrueNAS
-Docker (tests)
-Calibre-Web
-OpenClaw
-Ollama
+
+- TrueNAS
+- Docker (tests)
+- OpenClaw
+- Ollama
+
 Objectif :
-stockage
-expérimentation
-tests d’applications
-Node 2 — serveur domotique
+
+- stockage
+- expérimentation
+- tests d’applications
+
+### Node 2 — serveur domotique
+
 Machine : HP ProDesk
+
 Stockage :
-SSD 256 Go : VM / LXC
-SSD 240 Go : sauvegardes Proxmox
-SSD 120 Go : stockage caméras (prévu)
+
+- SSD 256 Go : VM / LXC
+- SSD 240 Go : sauvegardes Proxmox
+- SSD 120 Go : stockage caméras (prévu)
+
 Services actifs :
-Home Assistant
-MQTT
-Zigbee2MQTT
-Node-RED
-ESPHome
-Vaultwarden
-Nginx Proxy Manager
-MotionEye
-Frigate
+
+- Home Assistant
+- MQTT
+- Zigbee2MQTT
+- Node-RED
+- ESPHome
+- Vaultwarden
+- Nginx Proxy Manager
+- MotionEye
+- Frigate
+
 Services installés mais non encore utilisés :
-Grafana
-MariaDB
-WireGuard
-Tailscale
-Cloudflared
-🏠 Domotique
+
+- Grafana
+- MariaDB
+- WireGuard
+- Tailscale
+- Cloudflared
+
+## 🏠 Domotique
+
 L’infrastructure domotique repose sur plusieurs services interconnectés.
+
 Architecture :
 
+```
 Zigbee devices
       │
 Zigbee2MQTT
@@ -131,19 +146,28 @@ MQTT broker
 Home Assistant
       │
 Node-RED
+```
+
 Objectif :
-automatiser les scénarios domotiques
-centraliser les équipements
-intégrer capteurs et actionneurs.
-🎥 Vidéosurveillance
+
+- automatiser les scénarios domotiques
+- centraliser les équipements
+- intégrer capteurs et actionneurs.
+
+## 🎥 Vidéosurveillance
+
 Le système de vidéosurveillance repose sur deux solutions.
-Frigate
+
+### Frigate
+
 NVR basé sur l’IA utilisant :
-Docker
-go2rtc
-Google Coral TPU (USB)
+- Docker
+- go2rtc
+- Google Coral TPU (USB)
+
 Déploiement :
 
+```
 Proxmox
    │
 LXC Debian
@@ -151,24 +175,37 @@ LXC Debian
 Docker
    │
 Frigate + go2rtc
+```
+
 Fonctions :
-détection d’objets
-analyse vidéo locale
-intégration avec Home Assistant
-MotionEye
+
+- détection d’objets
+- analyse vidéo locale
+- intégration avec Home Assistant
+
+### MotionEye
+
 MotionEye est utilisé pour :
-visualiser les flux RTSP
-monitorer les caméras
-📷 Caméras
+
+- visualiser les flux RTSP
+- monitorer les caméras
+
+## 📷 Caméras
+
 Caméras utilisées :
-Xiaomi Yi 1080p (firmware yi-hack)
-Reolink E1 Zoom
-Reolink E1 Pro
+
+- 2x Xiaomi Yi 1080p (firmware yi-hack)
+- Reolink E1 Zoom
+- Reolink E1 Pro
+
 Protocoles :
-RTSP
-ONVIF (via go2rtc pour certaines caméras)
+
+- RTSP
+- ONVIF (via go2rtc pour certaines caméras)
+
 Architecture vidéo :
 
+```
 Caméras IP
    │
 RTSP / ONVIF
@@ -177,51 +214,75 @@ go2rtc
    │
 ├ Frigate (détection IA)
 └ MotionEye (visualisation)
-💾 Sauvegardes
+```
+
+## 💾 Sauvegardes
+
 Sauvegardes actuelles :
 
+```
 Proxmox Backup
    ↓
 SSD local 240 Go
+```
+
 Évolution prévue :
 
+````
 Proxmox Backup
    ↓
 NAS TrueNAS
-🧠 Compétences développées
+````
+
+## 🧠 Compétences développées
+
 Ce homelab m’a permis de travailler sur :
-virtualisation
-conteneurs
-infrastructure Linux
-stockage NAS
-domotique
-vidéosurveillance locale
-automatisation
+
+- virtualisation
+- conteneurs
+- infrastructure Linux
+- stockage NAS
+- domotique
+- vidéosurveillance locale
+- automatisation
+
 Technologies utilisées :
-Proxmox VE
-Docker
-Home Assistant
-TrueNAS
-Frigate
-Node-RED
-🚀 Prochaines évolutions
+
+- Proxmox VE
+- Docker
+- Home Assistant
+- TrueNAS
+- Frigate
+- Node-RED
+  
+## 🚀 Prochaines évolutions
+
 Améliorations prévues :
-activation de l’enregistrement vidéo Frigate
-monitoring de l’infrastructure
-accès distant sécurisé
-sauvegardes NAS
-supervision du homelab
-👨‍💻 Contexte
+
+- activation de l’enregistrement vidéo Frigate
+- monitoring de l’infrastructure
+- accès distant sécurisé
+- sauvegardes NAS
+- supervision du homelab
+
+## 👨‍💻 Contexte
+
 Ce projet est né à l’origine d’un besoin simple : automatiser mon appartement.
+
 La première version reposait sur un Raspberry Pi 4 exécutant Home Assistant.
+
 Avec le temps, plusieurs besoins sont apparus :
-ajout d’équipements domotiques
-automatisations plus complexes
-intégration de caméras IP
-expérimentation de nouveaux services
+
+- ajout d’équipements domotiques
+- automatisations plus complexes
+- intégration de caméras IP
+- expérimentation de nouveaux services
+
 Les limites du Raspberry Pi (ressources limitées et point de défaillance unique) ont conduit à migrer vers une infrastructure virtualisée basée sur Proxmox VE.
+
 Aujourd’hui, ce homelab sert à :
-gérer la domotique
-tester de nouveaux services auto-hébergés
-expérimenter différentes architectures
+
+- gérer la domotique
+- tester de nouveaux services auto-hébergés
+- expérimenter différentes architectures
 Plusieurs services sont actuellement installés mais encore en phase de test ou de déploiement, afin d’explorer différentes solutions et comprendre leur fonctionnement.
