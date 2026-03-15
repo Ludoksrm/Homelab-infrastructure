@@ -29,17 +29,23 @@ Ce laboratoire me permet aujourd’hui d’expérimenter :
 - la domotique
 - les services auto-hébergés
   
-🎯 Objectifs du projet
+## 🎯 Objectifs du projet
+
 Les objectifs principaux de ce homelab sont :
-centraliser la domotique de l’appartement
-expérimenter des technologies d’infrastructure
-apprendre l’administration systèmes Linux
-déployer des services auto-hébergés
-comprendre les architectures distribuées
-🖥 Architecture
+
+- centraliser la domotique de l’appartement
+- expérimenter des technologies d’infrastructure
+- apprendre l’administration systèmes Linux
+- déployer des services auto-hébergés
+- comprendre les architectures distribuées
+  
+## 🖥 Architecture
+
 L’infrastructure repose sur deux serveurs Proxmox afin de séparer les rôles :
-un serveur laboratoire / stockage
-un serveur domotique
+
+- un serveur laboratoire / stockage
+- un serveur domotique
+  
 Architecture simplifiée :
 
 ```
@@ -69,12 +75,17 @@ Réseau local
     ├ MotionEye
     └ Frigate (Docker + go2rtc)
    ```
-🖥 Infrastructure matérielle
-Node 1 — serveur laboratoire / stockage
+
+## 🖥 Infrastructure matérielle
+
+### Node 1 — serveur laboratoire / stockage
+
 Machine : HP ProDesk
+
 Stockage :
-SSD 256 Go : système Proxmox
-disque USB 1 To : ZFS
+
+- SSD 256 Go : système Proxmox
+- disque USB 1 To : ZFS
 Services :
 TrueNAS
 Docker (tests)
