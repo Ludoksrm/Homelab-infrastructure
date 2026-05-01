@@ -33,6 +33,23 @@ L'infrastructure repose sur deux nœuds **HP ProDesk** sous **Proxmox VE**, perm
 | **Accélération** | *Aucune* | **Google Coral TPU (USB)** |
 | **Rôle principal** | Tests, NAS, IA | Domotique, Sécurité, Proxy |
 
+graph TD
+    subgraph "Cluster Proxmox"
+    N1[Node 1: Lab & Storage]
+    N2[Node 2: Prod Domotique]
+    end
+
+    N1 --- D1[(HDD 1TB ZFS)]
+    N2 --- D2[(SSD 120GB Video)]
+    N2 --- D3[(SSD 240GB Backup)]
+    N2 --- TPU{Google Coral TPU}
+
+    style N2 fill:#f96,stroke:#333,stroke-width:2px
+    style TPU fill:#4caf50,stroke:#333,color:#fff
+
+
+
+
 L’infrastructure repose sur deux serveurs Proxmox afin de séparer les rôles :
 
 - un serveur laboratoire / stockage
