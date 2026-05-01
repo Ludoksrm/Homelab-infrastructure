@@ -2,43 +2,36 @@
 
 ## Présentation
 
-Ce dépôt documente l'évolution de mon infrastructure personnelle. Initialement basé sur un Raspberry Pi 4, le projet a migré vers une architecture virtualisée plus robuste afin de répondre à des besoins croissants en domotique et en auto-hébergement.
-Pourquoi avoir quitté le Raspberry Pi ?
+Ce dépôt documente mon homelab personnel, conçu pour automatiser mon appartement et expérimenter des technologies d’infrastructure.
 
-    Limites matérielles : Surcharge CPU lors du traitement vidéo.
+Le projet a commencé humblement avec un Raspberry Pi 4 hébergeant Home Assistant. Cependant, avec l’ajout progressif d’intégrations domotiques, de caméras IP et d'automatisations complexes, le Pi a atteint ses limites :
 
-    Fiabilité : Risques liés aux cartes SD et absence de redondance.
+- Surcharge CPU et baisse du framerate vidéo.
+- Architecture monolithique (si le Pi tombe, tout s'arrête).
+- Point de défaillance unique (SDR/Carte SD).
 
-    Flexibilité : Besoin d'isoler les services (Architecture Micro-services vs Monolithique).
-  
-le Raspberry Pi est rapidement devenu limité :
-
-- surcharge CPU
-- baisse du framerate vidéo
-- architecture monolithique
-- point de défaillance unique
-  
-L’infrastructure a donc évolué vers une architecture virtualisée basée sur Proxmox VE, permettant de séparer les services et d’améliorer la stabilité.
-
-Ce laboratoire me permet aujourd’hui d’expérimenter :
-
-- l’administration systèmes
-- la virtualisation
-- les conteneurs
-- la domotique
-- les services auto-hébergés
+L’infrastructure a donc évolué vers une architecture virtualisée basée sur Proxmox VE, permettant de séparer les services, d'améliorer la stabilité et de développer mes compétences en administration système.
   
 ## 🎯 Objectifs du projet
 
-Les objectifs principaux de ce homelab sont :
+🎯 Objectifs du projet
 
-- centraliser la domotique de l’appartement
-- expérimenter des technologies d’infrastructure
-- apprendre l’administration systèmes Linux
-- déployer des services auto-hébergés
-- comprendre les architectures distribuées
-  
-## 🖥 Architecture
+- Centraliser la domotique de l’appartement de façon robuste.
+- Expérimenter les technologies de virtualisation et de conteneurisation (Proxmox, Docker, LXC).
+- Apprendre l’administration systèmes Linux en conditions réelles.
+- Auto-héberger des services essentiels (Mots de passe, stockage, IA).
+
+## 🖥️ Architecture Matérielle
+
+L'infrastructure repose sur deux nœuds **HP ProDesk** sous **Proxmox VE**, permettant une isolation entre la zone d'expérimentation et les services critiques de la maison.
+
+| Composant | Node 1 (Lab & Stockage) | Node 2 (Production Domotique) |
+| :--- | :--- | :--- |
+| **Machine** | HP ProDesk | HP ProDesk |
+| **Stockage OS** | SSD 256 Go | SSD 256 Go |
+| **Stockage Data** | HDD USB 1 To (ZFS) | SSD 120 Go (Caméras) + 240 Go (Backup) |
+| **Accélération** | *Aucune* | **Google Coral TPU (USB)** |
+| **Rôle principal** | Tests, NAS, IA | Domotique, Sécurité, Proxy |
 
 L’infrastructure repose sur deux serveurs Proxmox afin de séparer les rôles :
 
