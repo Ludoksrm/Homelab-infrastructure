@@ -33,6 +33,7 @@ L'infrastructure repose sur deux nœuds **HP ProDesk** sous **Proxmox VE**, perm
 | **Accélération** | *Aucune* | **Google Coral TPU (USB)** |
 | **Rôle principal** | Tests, NAS, IA | Domotique, Sécurité, Proxy |
 
+```mermaid
 graph TD
     subgraph "Cluster Proxmox"
     N1[Node 1: Lab & Storage]
@@ -45,7 +46,7 @@ graph TD
     N2 --- TPU{Google Coral TPU}
 
     style N2 fill:#f96,stroke:#333,stroke-width:2px
-    style TPU fill:#4caf50,stroke:#333,color:#fff
+    style TPU fill:#4caf50,stroke:#333,color:#fff```
 
 
 
