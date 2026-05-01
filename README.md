@@ -46,7 +46,8 @@ graph TD
     N2 --- TPU{Google Coral TPU}
 
     style N2 fill:#f96,stroke:#333,stroke-width:2px
-    style TPU fill:#4caf50,stroke:#333,color:#fff```
+    style TPU fill:#4caf50,stroke:#333,color:#fff
+```
 
 
 
