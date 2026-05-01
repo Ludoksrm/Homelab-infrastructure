@@ -2,15 +2,14 @@
 
 ## Présentation
 
-Ce dépôt documente mon homelab personnel, construit pour automatiser mon appartement et expérimenter des technologies d’infrastructure.
+Ce dépôt documente l'évolution de mon infrastructure personnelle. Initialement basé sur un Raspberry Pi 4, le projet a migré vers une architecture virtualisée plus robuste afin de répondre à des besoins croissants en domotique et en auto-hébergement.
+Pourquoi avoir quitté le Raspberry Pi ?
 
-Le projet a commencé avec un Raspberry Pi 4 hébergeant Home Assistant.
+    Limites matérielles : Surcharge CPU lors du traitement vidéo.
 
-Avec l’ajout progressif :
+    Fiabilité : Risques liés aux cartes SD et absence de redondance.
 
-- d’intégrations domotiques
-- d’automatisations
-- de caméras IP
+    Flexibilité : Besoin d'isoler les services (Architecture Micro-services vs Monolithique).
   
 le Raspberry Pi est rapidement devenu limité :
 
