@@ -34,13 +34,13 @@ Pour pallier l'absence de double branchement USB, nous utilisons le réseau loca
 
 En cas de batterie faible, l'automatisation suit un ordre strict pour éviter toute corruption des données (notamment le pool ZFS du Node 1) :
 
-  1.__Alerte__ : L'onduleur signale un état Low Battery au Node 2.
+  1. __Alerte__ : L'onduleur signale un état `Low Battery` au Node 2.
   2. __Notification__ : Le Node 2 diffuse l'ordre de fermeture au Node 1 via le réseau.
   3. __Phase 1 (Node 1)__ :
     - Arrêt des VM/LXC (Nextcloud, Ollama, etc.).
     - Démontage sécurisé du pool ZFS.
     - Extinction complète du Node 1.
-  4.__Phase 2 (Node 2)__ :
+  4. __Phase 2 (Node 2)__ :
     - Arrêt de la Domotique (Home Assistant, Zigbee2MQTT).
     - Arrêt du NVR (Frigate).
     - Extinction finale du Node 2.
@@ -78,39 +78,42 @@ lsusb
 ```
 (Vous devriez voir une ligne mentionnant American Power Conversion).
 
-### 3. Configuration des fichiers (/etc/nut/)
+### 3. Configuration des fichiers (`/etc/nut/`)
 
-  - nut.conf : Définir le mode de fonctionnement.
-    ```Plaintext
-    MODE=netserver
-    ```
-  - ups.conf : Définir le pilote de l'onduleur.
-    ```Plaintext
-    [apc]
-        driver = usbhid-ups
-        port = auto
-        desc = "Onduleur APC ProDesk"
-    ```
-  - upsd.conf : Autoriser l'écoute sur le réseau local (IP du Node 2).
+- `nut.conf` : Définir le mode de fonctionnement.
+```Plaintext
+MODE=netserver
+```
 
-    ```Plaintext
-    LISTEN 0.0.0.0 3493
-    ```
+- `ups.conf` : Définir le pilote de l'onduleur.
+```Plaintext
+[apc]
+    driver = usbhid-ups
+    port = auto
+    desc = "Onduleur APC ProDesk"
+```
+
+- `upsd.conf` : Autoriser l'écoute sur le réseau local (IP du Node 2).
+```Plaintext
+LISTEN 0.0.0.0 3493
+```
+
 *   **`upsd.users`** : Créer les comptes pour le Master et le Slave.
-    ```text
-    [upsmon_master]
-        password = VOTRE_MOT_DE_PASSE_FORT
-        upsmon master
+```text
+[upsmon_master]
+    password = VOTRE_MOT_DE_PASSE_FORT
+    upsmon master
 
-    [upsmon_slave]
-        password = MOT_DE_PASSE_SLAVE
-        upsmon slave
-    ```
+[upsmon_slave]
+    password = MOT_DE_PASSE_SLAVE
+    upsmon slave
+```
+
 *   **`upsmon.conf`** : Configurer la surveillance locale.
-    ```text
-    MONITOR apc@localhost 1 upsmon_master VOTRE_MOT_DE_PASSE_FORT master
-    SHUTDOWNCMD "/sbin/shutdown -h +0"
-    ```
+```text
+MONITOR apc@localhost 1 upsmon_master VOTRE_MOT_DE_PASSE_FORT master
+SHUTDOWNCMD "/sbin/shutdown -h +0"
+```
 
 ---
 
@@ -126,21 +129,23 @@ apt update && apt install nut-client
 
 ### 2. Configuration des fichiers (/etc/nut/)
 
-  - nut.conf : Définir le mode.
-  ```Plaintext
-    MODE=netclient
-  ```
+- `nut.conf` : Définir le mode.
+```Plaintext
+MODE=netclient
+```
+
 *   **`upsmon.conf`** : Pointer vers le Node 2 (remplacez `IP_NODE_2`).
-    ```text
-    MONITOR apc@IP_NODE_2 1 upsmon_slave MOT_DE_PASSE_SLAVE slave
-    SHUTDOWNCMD "/sbin/shutdown -h +0"
-    ```
+```text
+MONITOR apc@IP_NODE_2 1 upsmon_slave MOT_DE_PASSE_SLAVE slave
+SHUTDOWNCMD "/sbin/shutdown -h +0"
+```
 
 ---
 
 ## 🚀 Étape 3 : Lancement et Vérification
 
 ### Sur le Node 2 (Master)
+
 Redémarrez les services :
 ```bash
 systemctl restart nut-server nut-client
