@@ -26,3 +26,16 @@ LOG="/var/log/backup_rsync.log"
 echo "--- Début du backup : $(date) ---" >> $LOG
 rsync -avz --delete $SOURCE $DEST_USER@$DEST_IP:$DEST_DIR >> $LOG 2>&1
 echo "--- Fin du backup : $(date) ---" >> $LOG
+```
+
+### 3. Planification (Crontab)
+Ajouter via crontab -e sur le Node 2 
+```bash
+00 03 * * * /bin/bash /root/scripts/backup_configs.sh
+```
+
+### 📊 Stratégie de Résilience
+| Type de Backup | Fréquence | Cible (Support) | Utilité / Risque couvert |
+| :--- | :--- | :--- | :--- |
+| **Image Proxmox** | Hebdomadaire (Dim. 01h) | SSD dédié (`Local-Backup`) | **Crash matériel** (SSD système HS, perte totale du Node). |
+| **Rsync (Option B)** | Quotidienne (03h00) | NAS (Node 1 - TrueNAS) | **Erreur humaine** (mauvaise config, suppression de fichier). |
