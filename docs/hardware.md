@@ -1,8 +1,3 @@
----
-
-### 2. Nouveau fichier : `docs/hardware.md`
-*C'est ici qu'on met le détail de tes clés Zigbee et du Passthrough USB.*
-
 ```markdown
 # 🛠️ Détails du Matériel (Node 2)
 
