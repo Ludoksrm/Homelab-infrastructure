@@ -287,3 +287,11 @@ L'origine de ce projet remonte à la lecture d'un très vieux magazine d'électr
 La première version "moderne" reposait sur un Raspberry Pi 4. Cependant, l'ajout progressif d'équipements, d'automatisations complexes et de caméras IP a rapidement montré les limites du Pi (CPU saturé, instabilité de la carte SD).
 
 La migration vers une infrastructure virtualisée sous Proxmox VE a transformé ce besoin en un véritable laboratoire personnel. Aujourd'hui, ce homelab ne se contente plus de gérer la domotique ; il me permet d'explorer, de tester et de comprendre en profondeur les architectures auto-hébergées et les systèmes Linux.
+
+## 📖 Documentation Détaillée
+
+Pour ne pas surcharger cette page, les détails techniques sont isolés ici :
+
+*   [🛠️ Détails du Matériel & Clés USB](./docs/hardware.md)
+*   [💾 Stratégie de Sauvegarde (Rsync)](./docs/backup-option-b.md)
+*   [⚡ Projet : Résilience électrique (UPS/NUT)](./docs/ups-nut.md)
