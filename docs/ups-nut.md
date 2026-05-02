@@ -1,15 +1,11 @@
-# ⚡ Gestion de l'onduleur (UPS-NUT)
+# ⚡ Projet : Résilience électrique (UPS-NUT)
 
 ## Objectif
-Protéger le cluster contre les coupures de courant et assurer une extinction propre.
+Utiliser l'onduleur APC relié au Node 2 pour protéger l'ensemble du cluster.
 
-## Configuration logicielle (Projet)
-- **Master** : Node 2 (Lien USB physique).
-- **Slave** : Node 1 (Écoute via le réseau).
-- **Service** : Network UPS Tools (NUT).
+## Fonctionnement (Maître/Esclave)
+1. **Node 2 (Master)** : Lit l'état de la batterie via USB et diffuse l'info sur le réseau.
+2. **Node 1 (Slave)** : Reçoit l'alerte via le protocole **NUT** (Network UPS Tools).
 
-## Ordre d'extinction automatique
-1. Services non critiques (Node 1).
-2. Node 1 (Slave).
-3. Domotique & Sécurité (Node 2).
-4. Node 2 (Master).
+## Scénario de coupure
+En cas de batterie faible, le Node 1 s'éteint en premier, suivi du Node 2, garantissant l'intégrité des données ZFS et des bases de données.
