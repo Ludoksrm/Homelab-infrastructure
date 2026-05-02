@@ -1,4 +1,3 @@
-```markdown
 # 🛠️ Détails du Matériel (Node 2)
 
 Le Node 2 est le hub physique de l'appartement. Les périphériques USB sont redirigés (Passthrough) vers les VM/LXC concernés.
@@ -11,4 +10,11 @@ Le Node 2 est le hub physique de l'appartement. Les périphériques USB sont red
 ### Autres périphériques
 * **Google Coral TPU** : Déchargement de l'IA Frigate (CPU < 10%).
 * **Onduleur APC** : Protection contre les coupures et micro-coupures.
-```
+
+### Gestion des fréquences Zigbee
+
+Pour éviter les interférences entre la production, les tests et le Wi-Fi de l'appartement, les canaux ont été fixés comme suit :
+| Périphérique | Usage | Canal | Logiciel |
+| :--- | :--- | :--- | :--- |
+| `Sonoff Dongle P` | **Production** | `11` | Zigbee2MQTT |
+| `Clé Popp` | **Tests / ZHA** | `20` | Home Assistant (ZHA) |
