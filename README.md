@@ -29,6 +29,9 @@ L'infrastructure repose sur deux nœuds **HP ProDesk** sous **Proxmox VE**, perm
 | **Stockage OS** | SSD 256 Go | SSD 256 Go |
 | **Stockage Data** | HDD USB 1 To (ZFS) | SSD 120 Go (Caméras) + 240 Go (Backup) |
 | **Accélération** | *Aucune* | **Google Coral TPU (USB)** |
+| **Zigbee 2** | *Aucun* | Sonoff Zigbee 3.0 Dongle Plus (P) |
+| **Zigbee 2** | *Aucun* | Sonoff Zigbee 3.0 Dongle Plus (P) |
+| **Onduleur** |	*Aucun* | Onduleur APC (UPS) |
 | **Rôle principal** | Tests, NAS, IA | Domotique, Sécurité, Proxy |
 
 ```mermaid
@@ -39,12 +42,19 @@ graph TD
     end
 
     N1 --- D1[(HDD 1TB ZFS)]
+    
     N2 --- D2[(SSD 120GB Video)]
     N2 --- D3[(SSD 240GB Backup)]
     N2 --- TPU{Google Coral TPU}
+    N2 --- ZB1{Sonoff Zigbee 3.0 - Prod}
+    N2 --- ZB2{Clé Popp - Test ZHA}
+    N2 --- UPS[Onduleur APC]
 
     style N2 fill:#f96,stroke:#333,stroke-width:2px
+    style ZB1 fill:#2196F3,stroke:#333,color:#fff
+    style ZB2 fill:#9C27B0,stroke:#333,color:#fff
     style TPU fill:#4caf50,stroke:#333,color:#fff
+    style UPS fill:#795548,stroke:#333,color:#fff
 ```
 
 L’infrastructure repose sur deux serveurs Proxmox afin de séparer les rôles :
@@ -218,6 +228,11 @@ Architecture logique :
 ```Plaintext
 [ Capteurs ] ──▶ [ Zigbee2MQTT / ESPHome ] ──▶ [ MQTT Broker ] ──▶ [ Home Assistant ]
 ```
+#### Stratégie IoT Hybride : 
+Pour garantir la stabilité de l'appartement tout en continuant d'expérimenter, le Node 2 gère deux réseaux Zigbee indépendants :
+
+   - Production : Basé sur une clé Sonoff et Zigbee2MQTT, pour une gestion fine et découplée de Home Assistant.
+   - Laboratoire : Une clé Popp Zigbee directement intégrée à l'instance ZHA de Home Assistant, permettant de tester rapidement de nouveaux capteurs sans risquer de perturber le réseau principal.
 
 ## 📊 Monitoring & Historisation
 
