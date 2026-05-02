@@ -54,7 +54,7 @@ L’infrastructure repose sur deux serveurs Proxmox afin de séparer les rôles 
   
 Architecture simplifiée :
 
-```
+```text
 Internet
    │
 Box Internet
@@ -147,7 +147,7 @@ Services installés mais non encore utilisés :
 
 L'infrastructure domotique est conçue pour être indépendante du cloud et centrée sur la réactivité locale.
 
-## 🎥 Vidéosurveillance & Analyse IA
+### 🎥 Vidéosurveillance & Analyse IA
 
 Le système de sécurité est conçu pour être 100% local, performant et intelligent. Il repose sur une architecture en cascade qui optimise le décodage matériel du i5-7500T et la puissance d'inférence du Google Coral.
 
@@ -155,7 +155,7 @@ Le système de sécurité est conçu pour être 100% local, performant et intell
 - Traitement IA (Frigate) : Récupère les flux depuis go2rtc. Utilise le Google Coral TPU pour la détection d'objets et l'iGPU Intel (HD 630) pour le décodage matériel.
 - Visualisation (MotionEye) : Affiche une mosaïque légère des flux redistribués par go2rtc.
 
-📷 Sources & Protocoles
+### 📷 Sources & Protocoles
 
 Le parc de caméras est hétérogène mais unifié par des protocoles standards.
 
@@ -165,7 +165,7 @@ Le parc de caméras est hétérogène mais unifié par des protocoles standards.
 
 - Protocoles : RTSP pour le flux continu et ONVIF pour le contrôle et les snapshots.
     
-🛠️ Pile Logicielle & Déploiement
+### 🛠️ Pile Logicielle & Déploiement
 
 L'isolation des services est assurée par une structure stratifiée sur Proxmox.
 
@@ -176,7 +176,6 @@ L'isolation des services est assurée par une structure stratifiée sur Proxmox.
 Structure de déploiement :
 
 ```Plaintext
-
 Proxmox (Hyperviseur)
    │
    └── LXC Debian (Conteneur privilégié)
@@ -186,7 +185,7 @@ Proxmox (Hyperviseur)
                └── Frigate + go2rtc (Services isolés)
 ```
 
-📷 Gestion des Flux (Architecture Vidéo)
+### 📷 Gestion des Flux (Architecture Vidéo)
 
 Pour optimiser les ressources, go2rtc agit comme un pivot central (Proxy RTSP). Il évite de saturer les processeurs des caméras en distribuant un flux unique vers plusieurs clients.
 
@@ -201,7 +200,7 @@ Caméras IP (Xiaomi / Reolink)
    └──▶ [ MotionEye ] ──▶ Visualisation Live & Monitoring
 ```
 
-🚀 Optimisation Matérielle
+### 🚀 Optimisation Matérielle
 
 - Décodage (iGPU) : Le processeur i5-7500T utilise son circuit graphique intégré (Intel HD 630) pour décharger le CPU du rendu vidéo.
 - Inférence (Coral TPU) : Le module USB traite l'analyse d'image (reconnaissance de personnes, objets) en déchargeant totalement le processeur principal.
@@ -217,7 +216,6 @@ La communication entre les capteurs et l'interface utilisateur repose sur une ar
 Architecture logique :
 
 ```Plaintext
-
 [ Capteurs ] ──▶ [ Zigbee2MQTT / ESPHome ] ──▶ [ MQTT Broker ] ──▶ [ Home Assistant ]
 ```
 
@@ -242,7 +240,6 @@ Actuellement, le Node 2 assure sa propre protection via un stockage physique dé
    - Rétention : Stratégie de rotation pour conserver les versions critiques récentes.
 
 ```Plaintext
-
 [ Services Node 2 ] ──(Dump Hebdomadaire)──▶ [ SSD 240 Go Local ]
 ```
 
@@ -255,7 +252,6 @@ L'objectif est d'externaliser les sauvegardes sur le Node 1 pour éliminer le po
    - Résilience : En cas de panne majeure du Node 2, les services pourront être restaurés et redémarrés directement sur le Node 1.
 
 ```Plaintext
-
 [ Node 2 : Prod ] ──────(Réseau LAN)──────▶ [ Node 1 : TrueNAS ]
       │                                           │
       └── VM/LXC Backup ──────────────────────────▶ Pool ZFS (1 To)
