@@ -233,8 +233,8 @@ Ajouter ici les captures du dashboard Home Assistant.
 Ajouter ici les photos du balcon, des plantes et des capteurs.
 
 ```md
-![Balcon connecté](images/Bac-Droit)
-![Balcon connecté](images/Bac-Gauche)
+![Balcon connecté](images/Bac-Droit.jpg)
+![Balcon connecté](images/Bac-Gauche.jpg)
 
 ![Capteur Zigbee](images/Capteur-Zigbee-1.jpg)
 ![Capteur Zigbee](images/Capteur-Zigbee-2.jpg)
