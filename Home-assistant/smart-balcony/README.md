@@ -223,7 +223,7 @@ Exemple :
 Ajouter ici les captures du dashboard Home Assistant.
 
 ```md
-![Dashboard](images/dashboard-smart-balcony.png)
+![Dashboard](Images/dashboard-smart-balcony.png)
 ```
 
 ---
@@ -233,11 +233,11 @@ Ajouter ici les captures du dashboard Home Assistant.
 Ajouter ici les photos du balcon, des plantes et des capteurs.
 
 ```md
-![Balcon connecté](images/Bac-Droit.jpg)
-![Balcon connecté](images/Bac-Gauche.jpg)
+![Balcon connecté](Images/Bac-Droit.jpg)
+![Balcon connecté](Images/Bac-Gauche.jpg)
 
-![Capteur Zigbee](images/Capteur-Zigbee-1.jpg)
-![Capteur Zigbee](images/Capteur-Zigbee-2.jpg)
+![Capteur Zigbee](Images/Capteur-Zigbee-1.jpg)
+![Capteur Zigbee](Images/Capteur-Zigbee-2.jpg)
 ```
 
 ---
@@ -274,13 +274,15 @@ secondary: >
 
 # 🎯 Objectif du projet
 
-Ce projet permet d’expérimenter :
+Ce système permet d’expérimenter :
 
 * l’IoT,
 * le monitoring temps réel,
 * l’intégration Zigbee,
-* la logique conditionnelle avec Jinja,
-* et la visualisation dynamique de données dans Home Assistant.
+* des règles conditionnelles dans Home Assistant pour adapter dynamiquement les conseils et les scores,
+* ainsi que la visualisation dynamique de données.
 
-Contrairement à un projet purement virtuel, ce système interagit directement avec un environnement physique réel et évolutif.
+Contrairement à un environnement purement virtuel, cette installation interagit directement avec un environnement physique réel et évolutif.
+
+L’ensemble évolue progressivement au rythme des tests, des besoins des plantes et des expérimentations autour de Home Assistant et du monitoring IoT.
 
