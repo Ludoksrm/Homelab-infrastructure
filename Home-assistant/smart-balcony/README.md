@@ -223,7 +223,7 @@ Exemple :
 Ajouter ici les captures du dashboard Home Assistant.
 
 ```md
-![Dashboard](Images/dashboard-smart-balcony.png)
+Capture du dashboard Home Assistant à ajouter.
 ```
 
 ---
@@ -233,11 +233,7 @@ Ajouter ici les captures du dashboard Home Assistant.
 Ajouter ici les photos du balcon, des plantes et des capteurs.
 
 ```md
-![Balcon connecté]([Home-assistant/Images/Bac-Droit.jpg](https://github.com/Ludoksrm/Homelab-infrastructure/blob/main/Home-assistant/smart-balcony/Images/Bac-Droit.jpg))
-![Balcon connecté](Home-assistant/Images/Bac-Gauche.jpg)
-
-![Capteur Zigbee](Home-assistant/Images/Capteur-Zigbee-1.jpg)
-![Capteur Zigbee](Home-assistant/Images/Capteur-Zigbee-2.jpg)
+Photos des bacs, des plantes et des capteurs à ajouter.
 ```
 
 ---
