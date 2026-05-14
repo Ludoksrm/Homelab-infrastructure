@@ -298,4 +298,4 @@ La migration vers une infrastructure virtualisée sous Proxmox VE a transformé 
 *   [🛠️ Détails du Matériel & Clés USB](./docs/hardware.md)
 *   [💾 Stratégie de Sauvegarde (Rsync)](./docs/backup-option-b.md)
 *   [⚡ Projet : Résilience électrique (UPS/NUT)](./docs/ups-nut.md)
-*   [🌿 Projet : Smart Balcony Monitoring (Dépôt externe)](./Home-assistant/smart-balcony)
+*   [🌿 Projet : Smart Balcony Monitoring](./Home-assistant/smart-balcony)
