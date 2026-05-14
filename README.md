@@ -231,7 +231,7 @@ Architecture logique :
 
 #### 🌿 Focus Projet : Smart Balcony Monitoring**
 Ce dépôt intègre un sous-projet dédié au suivi environnemental d'un balcon connecté. Il utilise des capteurs Zigbee pour monitorer la santé des plantations (température, humidité) et transforme les données brutes en scores de santé dynamiques dans Home Assistant.**
-- [Consulter le dépôt dédié Smart Balcony](https://github.com/votre-nom/smart-balcony)
+- [Consulter le dépôt dédié Smart Balcony](./Home-assistant/smart-balcony)
 
 #### Stratégie IoT Hybride : 
 Pour garantir la stabilité de l'appartement tout en continuant d'expérimenter, le Node 2 gère deux réseaux Zigbee indépendants :
@@ -298,4 +298,4 @@ La migration vers une infrastructure virtualisée sous Proxmox VE a transformé 
 *   [🛠️ Détails du Matériel & Clés USB](./docs/hardware.md)
 *   [💾 Stratégie de Sauvegarde (Rsync)](./docs/backup-option-b.md)
 *   [⚡ Projet : Résilience électrique (UPS/NUT)](./docs/ups-nut.md)
-*   [🌿 Projet : Smart Balcony Monitoring (Dépôt externe)](https://github.com/votre-nom/smart-balcony)
+*   [🌿 Projet : Smart Balcony Monitoring (Dépôt externe)](./Home-assistant/smart-balcony)
